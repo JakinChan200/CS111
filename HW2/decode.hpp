@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//finds coefficient*(secretNum)^exponent (mod n) and returns it
 int findDecodedNum(int coefficient, int secretNum, int exponent, int n){
     if(exponent == 1){
         return (secretNum * coefficient) % n;
@@ -21,6 +22,7 @@ int findDecodedNum(int coefficient, int secretNum, int exponent, int n){
     return 0;
 }
 
+//converts the number into the letter equivalent and returns it
 char convertToLetter(int decodedNum){
     decodedNum -= 3;
     decodedNum += 'a';
@@ -34,6 +36,11 @@ char convertToLetter(int decodedNum){
     return '.';
 }  
 
+/*
+Have we decoded this letter yet?
+If yes, find what we got last time, and concatenate it to the string.
+If not, then decode it, find the char equivalent, and concatenate to the string.
+*/
 string DecodeMessage(string fileName){
     int d = 89;
     int n = 187;
