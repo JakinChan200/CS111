@@ -23,6 +23,8 @@ int findDecodedNum(int coefficient, int secretNum, int exponent, int n){
 }
 
 //converts the number into the letter equivalent and returns it
+//Per the instructions, A = 3, B = 4, etc, 
+//and blank, quotation mark, and a period are 29, 30, and 31 respectively
 char convertToLetter(int decodedNum){
     decodedNum -= 3;
     decodedNum += 'a';
@@ -44,7 +46,7 @@ If not, then decode it, find the char equivalent, and concatenate to the string.
 string DecodeMessage(string fileName){
     int d = 89;
     int n = 187;
-    vector<int> key(184);
+    vector<int> key(184);  //187 different values, maybe should be 187 total slots?
     fill(key.begin(), key.end(), 0);
     ifstream input;
     input.open(fileName);
